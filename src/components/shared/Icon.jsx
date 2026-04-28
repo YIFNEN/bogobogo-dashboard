@@ -9,6 +9,7 @@ import {
   Unlock, Database, Server, Wifi, WifiOff, Monitor, Hash,
   MoreHorizontal, BookOpen, Layers, TrendingUp, TrendingDown,
   PieChart, BarChart, LineChart, Map, Navigation,
+  Sparkles, Home, FileCheck, Construction, Video, Image, ScanEye,
 } from 'lucide-react';
 
 const ICON_MAP = {
@@ -78,6 +79,13 @@ const ICON_MAP = {
   'line-chart': LineChart,
   'map': Map,
   'navigation': Navigation,
+  'sparkles': Sparkles,
+  'home': Home,
+  'file-check': FileCheck,
+  'construction': Construction,
+  'video': Video,
+  'image': Image,
+  'scan-eye': ScanEye,
 };
 
 export default function Icon({ name, size = 16, color, style: sx = {} }) {

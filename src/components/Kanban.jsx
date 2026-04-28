@@ -94,25 +94,35 @@ export default function Kanban({ incidents, onSelect, statusFilter, setStatusFil
               onDragLeave={() => setDragOver(null)}
               style={{
                 flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden',
-                borderRight: ci < 3 ? `1px solid ${C.border}` : 'none',
+                borderRight: ci < COLS.length - 1 ? `1px solid ${C.border}` : 'none',
                 background: isDragTarget ? `rgba(232,98,42,0.04)` : 'transparent',
                 transition: 'background 150ms ease',
-                outline: isDragTarget ? `1px solid ${C.orangeB}` : 'none',
               }}
             >
               {/* Column header */}
-              <div style={{ padding: '10px 14px 8px', borderBottom: `1px solid ${C.border}`, flexShrink: 0 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 7, marginBottom: 2 }}>
-                  <span style={{ width: 7, height: 7, borderRadius: '50%', background: m.dot, flexShrink: 0 }} />
-                  <span style={{ fontFamily: C.mono, fontSize: 9, color: m.color, letterSpacing: '1.2px', textTransform: 'uppercase', flex: 1 }}>{m.label}</span>
-                  <span style={{ fontFamily: C.mono, fontSize: 10, color: C.fg3 }}>{all.length}</span>
+              <div style={{ padding: '10px 12px', borderBottom: `1px solid ${isDragTarget ? C.orangeB : C.border}`, flexShrink: 0, transition: 'border-color 150ms ease' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                  <span style={{ width: 5, height: 5, borderRadius: '50%', background: m.dot, display: 'inline-block', flexShrink: 0 }} />
+                  <span style={{ fontFamily: C.mono, fontSize: 8, color: m.color, letterSpacing: '1px', flex: 1, textTransform: 'uppercase' }}>{m.label}</span>
+                  <span style={{ fontFamily: C.mono, fontSize: 8, color: C.fg4 }}>{all.length}</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
+                  <div style={{ fontFamily: C.mono, fontSize: 22, color: C.fg1, letterSpacing: '-1.5px' }}>{all.length}</div>
+                  <div style={{ fontFamily: C.mono, fontSize: 8, color: C.fg4 }}>
+                    {(col === 'detected' || col === 'reviewed') && all.length > 0 &&
+                      `avg ${(all.reduce((a, b) => a + b.score.eventization_score, 0) / all.length).toFixed(2)}`}
+                    {col === 'confirmed' && `${Math.round(all.length / Math.max(incidents.length, 1) * 100)}% total`}
+                    {col === 'false_alarm' && `${Math.round(all.length / Math.max(incidents.length, 1) * 100)}% false`}
+                  </div>
                 </div>
               </div>
 
               {/* Cards */}
-              <div style={{ flex: 1, overflowY: 'auto', padding: '10px 10px 6px' }}>
+              <div style={{ flex: 1, overflowY: 'auto', padding: '8px 10px' }}>
                 {cards.length === 0
-                  ? <div style={{ fontFamily: C.mono, fontSize: 8, color: C.fg4, textAlign: 'center', marginTop: 20 }}>—</div>
+                  ? <div style={{ border: `1px dashed ${isDragTarget ? C.orangeB : C.border}`, padding: '20px 10px', fontFamily: C.mono, fontSize: 8.5, color: isDragTarget ? C.orange : C.fg4, textAlign: 'center', letterSpacing: '0.5px', borderRadius: C.R, marginTop: 4, transition: 'all 150ms ease' }}>
+                      {isDragTarget ? '여기에 놓기' : 'NO INCIDENTS'}
+                    </div>
                   : cards.map(inc => (
                     <KCard
                       key={inc.incident_id}
