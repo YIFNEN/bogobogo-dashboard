@@ -94,7 +94,7 @@ export default function Detail({ inc, incidents, onBack, onStatusChange, tweaks 
       <div style={{ padding: '9px 22px', borderBottom: `1px solid ${C.border}`, flexShrink: 0, background: C.bg2, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <button onClick={onBack} style={{ display: 'flex', alignItems: 'center', gap: 4, cursor: 'pointer' }}>
-            <Icon name="layout-dashboard" size={11} color={C.fg4} />
+            <Icon name="home" size={11} color={C.fg4} />
           </button>
           <span style={{ color: C.border2 }}>›</span>
           <span style={{ fontFamily: C.mono, fontSize: 9.5, color: C.fg4, cursor: 'pointer' }} onClick={onBack}>Incidents</span>
@@ -240,8 +240,8 @@ export default function Detail({ inc, incidents, onBack, onStatusChange, tweaks 
               <div>
                 <SecLabel>EVIDENCE FILES</SecLabel>
                 {[
-                  { name: 'cam_clip.mp4',         size: '14.2 MB', icon: 'play' },
-                  { name: 'thumb_001.jpg',         size: '0.4 MB',  icon: 'file-text' },
+                  { name: 'cam_clip.mp4',         size: '14.2 MB', icon: 'video' },
+                  { name: 'thumb_001.jpg',         size: '0.4 MB',  icon: 'image' },
                   { name: 'detection_log.json',    size: '0.1 MB',  icon: 'file-text' },
                 ].map((f, i, arr) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 0', borderBottom: i < arr.length - 1 ? `1px solid ${C.border}` : 'none', cursor: 'pointer' }}>
@@ -368,7 +368,7 @@ export default function Detail({ inc, incidents, onBack, onStatusChange, tweaks 
         {tab === 'ai report' && (
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
             <div style={{ padding: '14px 28px', borderBottom: `1px solid ${C.border}`, flexShrink: 0, display: 'flex', alignItems: 'center', gap: 8 }}>
-              <Icon name="zap" size={13} color={C.orange} />
+              <Icon name="sparkles" size={13} color={C.orange} />
               <span style={{ fontFamily: C.mono, fontSize: 9, color: C.fg2, letterSpacing: '1.4px', textTransform: 'uppercase', flex: 1 }}>AI ASSIST — intrusion_assist</span>
               {det.ai_output && <span style={{ fontFamily: C.mono, fontSize: 8, color: C.fg4 }}>{det.ai_output.meta.prompt_version}</span>}
               {det.report_summary?.report_available && <span style={{ fontFamily: C.mono, fontSize: 8, color: '#22C55E', background: 'rgba(34,197,94,0.08)', border: '1px solid rgba(34,197,94,0.2)', padding: '2px 7px', borderRadius: '999px' }}>{det.report_summary.report_id}</span>}
@@ -447,7 +447,7 @@ export default function Detail({ inc, incidents, onBack, onStatusChange, tweaks 
                 <SecLabel>REPORT</SecLabel>
                 {det.report_summary.report_available
                   ? <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'rgba(34,197,94,0.05)', border: '1px solid rgba(34,197,94,0.15)', borderRadius: C.R }}>
-                      <Icon name="file-text" size={13} color="#22C55E" />
+                      <Icon name="file-check" size={13} color="#22C55E" />
                       <div style={{ flex: 1 }}>
                         <div style={{ fontFamily: C.mono, fontSize: 10, color: C.fg1 }}>{det.report_summary.report_id}</div>
                         <div style={{ fontFamily: C.mono, fontSize: 8, color: C.fg4, marginTop: 2 }}>{new Date(det.report_summary.report_generated_at).toLocaleString('ko-KR')}</div>

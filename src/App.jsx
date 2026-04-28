@@ -138,7 +138,7 @@ export default function App() {
         )}
         {!['home', 'incidents', 'detail', 'analytics', 'settings'].includes(page) && (
           <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 12 }}>
-            <Icon name="monitor" size={24} color={C.fg4} />
+            <Icon name="construction" size={24} color={C.fg4} />
             <span style={{ fontFamily: C.mono, fontSize: 10, color: C.fg4, letterSpacing: '1.4px', textTransform: 'uppercase' }}>{page} — 준비 중</span>
           </div>
         )}

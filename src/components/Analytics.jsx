@@ -9,6 +9,7 @@ import SecLabel from './shared/SecLabel';
 const REPORTS = [
   { incident_id: 'INC-2026-003', zone: 'warehouse_south',   at: '2026-04-24T20:16:00+09:00', status: 'confirmed', score: 0.94 },
   { incident_id: 'INC-2026-001', zone: 'outer_fence_north', at: '2026-04-24T21:14:00+09:00', status: 'detected',  score: 0.87 },
+  { incident_id: 'INC-2026-010', zone: 'outer_fence_north', at: '2026-04-23T18:42:00+09:00', status: 'confirmed', score: 0.88 },
 ];
 
 export default function Analytics({ incidents, onSelect }) {
@@ -130,7 +131,7 @@ export default function Analytics({ incidents, onSelect }) {
                   style={{ padding: '14px 20px', cursor: 'pointer', borderLeft: `3px solid ${active ? C.orange : 'transparent'}`, background: active ? C.orangeD : 'transparent', borderBottom: `1px solid ${C.border}`, transition: 'all 150ms ease' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 5 }}>
                     <span style={{ fontFamily: C.mono, fontSize: 11, color: active ? C.fg1 : C.fg2 }}>{r.incident_id}</span>
-                    {!hasAi && <span style={{ fontFamily: C.mono, fontSize: 8, color: C.fg4, border: `1px solid ${C.border}`, padding: '1px 5px', borderRadius: 3 }}>NO AI</span>}
+                    {!hasAi && <span style={{ fontFamily: C.mono, fontSize: 8, color: C.fg4, border: `1px solid ${C.border}`, padding: '1px 5px', borderRadius: 3 }}>MOCK</span>}
                   </div>
                   <div style={{ fontFamily: C.mono, fontSize: 9, color: C.fg4, marginBottom: 4 }}>{r.zone}</div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

@@ -3,7 +3,7 @@ import { C } from '../tokens';
 import Icon from './shared/Icon';
 
 const SECTIONS = [
-  { id: 'detection',     icon: 'activity',  label: '감지 설정' },
+  { id: 'detection',     icon: 'scan-eye',  label: '감지 설정' },
   { id: 'zones',         icon: 'map-pin',   label: '구역 규칙' },
   { id: 'notifications', icon: 'bell',      label: '알림' },
   { id: 'cameras',       icon: 'camera',    label: '카메라' },
