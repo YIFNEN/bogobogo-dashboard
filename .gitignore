@@ -1,2 +1,55 @@
 node_modules/
 dist/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+
+# Runtime logs and temporary files
+*.log
+tmp/
+temp/
+.cache/
+
+# Unity local/generated folders
+Library/
+Temp/
+Logs/
+UserSettings/
+Obj/
+Build/
+Builds/
+MemoryCaptures/
+Recordings/
+*.csproj
+*.sln
+*.user
+*.pidb
+*.booproj
+
+# Large or licensed assets intentionally excluded from the portfolio repo
+*.unitypackage
+*.fbx
+*.rvt
+*.ifc
+*.nwd
+*.nwc
+*.blend
+*.rar
+*.7z
+*.zip
+*.mp4
+*.mov
+*.avi
+*.wasm
+*.data
+*.bundle
+UnityPlayer.dll
+*_Data/
+StreamingAssets/
